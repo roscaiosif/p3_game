@@ -221,20 +221,12 @@ Menu.prototype.nav = function(key,dx,dy,style,xS,dyS,dySS){
     switch (key){
         case 'up':
         case 'left':
-            if (this.cursor == 0){
-                this.cursor = this.str.length-1;
-            } else {
-                this.cursor--;
-            };
+            (this.cursor == 0) ? this.cursor = this.str.length-1 : this.cursor--;
             this.renderSelector(dx,dy,style,xS,dyS,dySS);
         break;
         case 'down':
         case 'right':
-            if (this.cursor == this.str.length-1){
-                this.cursor = 0;
-            } else {
-                this.cursor++;
-            };
+            (this.cursor == this.str.length-1) ? this.cursor = 0 : this.cursor++;
             this.renderSelector(dx,dy,style,xS,dyS,dySS);
         break;
         case 'enter':
@@ -278,21 +270,13 @@ Menu.prototype.select =function(key){
             switch(key){
                 case 'left':
                 case 'up':
-                    if(crtPlayer==0){
-                        crtPlayer = avatars.length-1
-                    } else{
-                        crtPlayer--;
-                    };
+                    crtPlayer == 0 ? crtPlayer = avatars.length-1 : crtPlayer--;
                     repaintBackGround(pOrigColRow,0,1,'images/grass-block.png');
                     renderSelectedPlayer();
                 break;
                 case 'right':
                 case 'down':
-                    if(crtPlayer==avatars.length-1){
-                        crtPlayer = 0
-                    } else{
-                        crtPlayer++;
-                    };
+                    crtPlayer == avatars.length-1 ? crtPlayer = 0 : crtPlayer++;
                     repaintBackGround(pOrigColRow,0,1,'images/grass-block.png');
                     renderSelectedPlayer();
                 break;
@@ -307,22 +291,14 @@ Menu.prototype.select =function(key){
             switch(key){
                 case 'left':
                 case 'up':
-                    if(crtDiff == 0){
-                        crtDiff = eDifficulty.length-1
-                    } else{
-                        crtDiff--;
-                    };
+                    crtDiff == 0 ? crtDiff = eDifficulty.length-1 : crtDiff--;
                     this.renderSelector(mdx,mdy,mStyle,xS,dyS,4.25);
                     diffText.str = eDifficulty[crtDiff].name;
                     diffText.render(0,0,dStyle);
                 break;
                 case 'right':
                 case 'down':
-                    if(crtDiff == eDifficulty.length-1){
-                        crtDiff = 0;
-                    } else{
-                        crtDiff++;
-                    };
+                    crtDiff == eDifficulty.length-1 ? crtDiff = 0 : crtDiff++;
                     this.renderSelector(mdx,mdy,mStyle,xS,dyS,4.25);
                     diffText.str = eDifficulty[crtDiff].name;
                     diffText.render(0,0,dStyle);
